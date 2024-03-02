@@ -1,0 +1,9 @@
+name: GunsPlugin
+version: '${project.version}'
+main: com.andrew.guns.Main
+api-version: 1.20
+authors: [ Andrew ]
+description: 5 different guns
+commands:
+  launcher:
+    aliases: l
