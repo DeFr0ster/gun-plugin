@@ -39,27 +39,22 @@ public class LauncherListener implements Listener {
                         case "Arrow Launcher":
                             player.launchProjectile(Arrow.class);
                             player.playSound(player.getLocation(), Sound.ENTITY_ARROW_SHOOT, 1.0F, 1.0F);
-                            player.sendMessage("You have shot an arrow!");
                             break;
                         case "Egg Launcher":
                             player.launchProjectile(Egg.class);
                             player.playSound(player.getLocation(), Sound.ENTITY_EGG_THROW, 1.0F, 1.0F);
-                            player.sendMessage("You have thrown an egg!");
                             break;
                         case "Snowball Launcher":
                             player.launchProjectile(Snowball.class);
                             player.playSound(player.getLocation(), Sound.ENTITY_SNOWBALL_THROW, 1.0F, 1.0F);
-                            player.sendMessage("You have thrown a snowball!");
                             break;
                         case "Fireball Launcher":
                             player.launchProjectile(Fireball.class);
                             player.playSound(player.getLocation(), Sound.ENTITY_GHAST_SHOOT, 1.0F, 1.0F);
-                            player.sendMessage("You have shot a fireball!");
                             break;
                         case "Trident Launcher":
                             player.launchProjectile(Trident.class);
                             player.playSound(player.getLocation(), Sound.ITEM_TRIDENT_THROW, 1.0F, 1.0F);
-                            player.sendMessage("You have thrown a trident!");
                             break;
                     }
             }
@@ -100,7 +95,6 @@ public class LauncherListener implements Listener {
                         case "Snowball Launcher":
                             if (e.getHitBlock() != null) {
                                 Snowman snowman = (Snowman) Bukkit.getWorld("world").spawnEntity(e.getHitBlock().getLocation().add(0, 1, 0), EntityType.SNOWMAN);
-                                player.sendMessage("You have spawned a snowman!");
                             }
                             break;
                         case "Trident Launcher":
@@ -141,6 +135,7 @@ public class LauncherListener implements Listener {
                         case 23:
                         case 24:
                             target.getInventory().addItem(itemStack);
+                            target.sendMessage(ChatColor.GRAY + "You have selected the " + itemStack.getItemMeta().getDisplayName() + ChatColor.GRAY + ".");
                             break;
                         default:
                             return;
