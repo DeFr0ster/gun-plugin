@@ -41,13 +41,13 @@ public class LauncherCommand implements CommandExecutor {
             cooldown.put(player.getUniqueId(), System.currentTimeMillis() + 5000);
 
             if (args.length != 2) {
-                player.sendMessage("Correct usage: /launcher <Player> <Type>");
+                player.sendMessage(ChatColor.RED + "Correct usage: /launcher <Player> <Type>");
                 return true;
             }
 
             Player target = Bukkit.getPlayerExact(args[0]);
             if (target == null) {
-                player.sendMessage("Player is not found");
+                player.sendMessage(ChatColor.RED + "Player is not found");
                 return true;
             }
 
@@ -61,6 +61,7 @@ public class LauncherCommand implements CommandExecutor {
             itemStack.setItemMeta(meta);
 
             target.getInventory().addItem(itemStack);
+            target.sendMessage(ChatColor.GRAY + "You have selected the " + itemStack.getItemMeta().getDisplayName() + ChatColor.GRAY + ".");
             return true;
 
         } else {
